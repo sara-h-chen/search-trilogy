@@ -13,14 +13,14 @@ public class DepthFirstSearch {
         boolean visited;
 
         Node(int data) {
-            this.data = data
+            this.data = data;
         }
     }
 
     // Find neighbours of node using adjacency matrix
     // If adjacencyMatrix[i][j] == 1, then nodes at index i and j are connected
     public ArrayList<Node> findNeighbours(int adjacencyMatrix[][], Node x) {
-        int NodeIndex = -1;
+        int nodeIndex = -1;
 
         ArrayList<Node> neighbours = new ArrayList<Node>();
 
@@ -32,7 +32,7 @@ public class DepthFirstSearch {
         }
 
         if (nodeIndex != -1) {
-            for (int j = 0; j < adjacencyMatrix[nodeIndex].length) {
+            for (int j = 0; j < adjacencyMatrix[nodeIndex].length; j++) {
                 if (adjacencyMatrix[nodeIndex][j] == 1) {
                     neighbours.add(nodes.get(j));
                 }
@@ -74,10 +74,13 @@ public class DepthFirstSearch {
                 }
             }
         }
+    }
 
+    public static void clearVisitedFlags() {
+        for (int i = 0; i < nodes.size(); i++) {
+            nodes.get(i).visited = false;
+        }
+    }
 
 }
 
-
-
-}
